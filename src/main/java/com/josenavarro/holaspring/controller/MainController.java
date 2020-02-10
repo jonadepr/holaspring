@@ -53,4 +53,48 @@ public class MainController{
         return respuesta;
     }
 
+    //Calculadora
+    @GetMapping("/calculadora")
+    @ResponseBody
+    public String calculadora(@RequestParam("Operador") String operador, @RequestParam("Operando1") Double operando1, @RequestParam(value = "Operando2", required = false) Double operando2){
+        String frase = operando1 + operador + operando2;
+        double res = 0.0;
+        switch(operador){
+            case "-":
+            res = operando1-operando2;
+            frase = frase + "=" + res;
+            break;
+
+            case "sum":
+            res = operando1+operando2;
+            frase = frase + "=" + res;
+            break;
+
+            case "*":
+            res = operando1*operando2;
+            frase = frase + "=" + res;
+            break;
+
+            case "/":
+            res = operando1/operando2;
+            frase = frase + "=" + res;
+            break;
+
+            case "cuadrado":
+            frase = operando1 + operador;
+            res = operando1*operando1;
+            frase = frase + "=" + res;
+            break;
+
+            case "sqrt":
+            frase = operando1 + operador;
+            res = Math.sqrt(operando1);
+            frase = frase + "=" + res;
+            break;
+            
+            default:
+            return "Ha habido algun error";
+        }
+        return frase;
+    }
 }
