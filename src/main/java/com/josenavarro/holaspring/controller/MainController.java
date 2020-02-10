@@ -13,13 +13,13 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class MainController{
     @GetMapping("/") // Entradas en la tabla de rutas solo una por dirección, ejecuta el método de abajo al encontrar "/" es la ruta servidor
-    @ResponseBody // Busca plantilla timeleaf que responde el nombre que le pongamos
+    @ResponseBody // Busca plantilla thymeleaf que responde el nombre que le pongamos
     public String holaMundo(@RequestParam("nombre") String name, @RequestParam("edad") Integer edad){ /** Request es la petición y Response la respuesta, lo captura y lo guarad en el String name */
         return "Hola "+name+", edad "+edad; // http://localhost:8080/?nombre=Jose&edad=36
     }
     
     @GetMapping("/ingles") // Entradas en la tabla de rutas solo una por dirección
-    @ResponseBody // Busca plantilla timeleaf que responde el nombre que le pongamos
+    @ResponseBody // Busca plantilla thymeleaf que responde el nombre que le pongamos
     public String holaMundoE(){
         return "Hello World";
     }
@@ -56,42 +56,44 @@ public class MainController{
     //Calculadora
     @GetMapping("/calculadora")
     @ResponseBody
-    public String calculadora(@RequestParam("Operador") String operador, @RequestParam("Operando1") Double operando1, @RequestParam(value = "Operando2", required = false) Double operando2){
-        String frase = operando1 + operador + operando2;
+    public String calculadora(@RequestParam("Operador") String operador, 
+    @RequestParam("Operando1") Double operando1, 
+    @RequestParam(value = "Operando2", required = false) Double operando2){
+        String frase = operando1 +" "+ operador +" "+ operando2;
         double res = 0.0;
         switch(operador){
             case "-":
             res = operando1-operando2;
-            frase = frase + "=" + res;
+            frase = frase + " = " + res;
             break;
 
             case "sum":
             res = operando1+operando2;
-            frase = frase + "=" + res;
+            frase = frase + " = " + res;
             break;
 
             case "*":
             res = operando1*operando2;
-            frase = frase + "=" + res;
+            frase = frase + " = " + res;
             break;
 
             case "/":
             res = operando1/operando2;
-            frase = frase + "=" + res;
+            frase = frase + " = " + res;
             break;
 
             case "cuadrado":
             frase = operando1 + operador;
             res = operando1*operando1;
-            frase = frase + "=" + res;
+            frase = frase + " = " + res;
             break;
 
             case "sqrt":
             frase = operando1 + operador;
             res = Math.sqrt(operando1);
-            frase = frase + "=" + res;
+            frase = frase + " = " + res;
             break;
-            
+
             default:
             return "Ha habido algun error";
         }
