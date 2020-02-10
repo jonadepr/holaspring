@@ -11,10 +11,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 public class MainController{
-    @GetMapping("/") // Entradas en la tabla de rutas solo una por dirección, ejecuta el método de abajo al encontrar /
+    @GetMapping("/") // Entradas en la tabla de rutas solo una por dirección, ejecuta el método de abajo al encontrar "/" es la ruta servidor
     @ResponseBody // Busca plantilla timelift que responde el nombre que le pongamos
-    public String holaMundo(@RequestParam("nombre") String name){ /** Request es la petición y Response la respuesta, lo captura y lo guarad en el String name */
-        return "Hola "+name;
+    public String holaMundo(@RequestParam("nombre") String name, @RequestParam("edad") Integer edad){ /** Request es la petición y Response la respuesta, lo captura y lo guarad en el String name */
+        return "Hola "+name+", edad "+edad; // http://localhost:8080/?nombre=Jose&edad=36
     }
     
     @GetMapping("/ingles") // Entradas en la tabla de rutas solo una por dirección
