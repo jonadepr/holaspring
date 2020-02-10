@@ -56,9 +56,11 @@ public class MainController{
     //Calculadora Prueba
     @GetMapping("/calculadora")
     @ResponseBody
-    public String calculadora(@RequestParam("Operador") String operador, 
-    @RequestParam("Operando1") Double operando1, 
-    @RequestParam(value = "Operando2", required = false) Double operando2){
+    public String calculadora(
+        @RequestParam("Operador") String operador, 
+        @RequestParam("Operando1") Double operando1, 
+        @RequestParam(value = "Operando2", required = false) Double operando2)
+        {
         String frase = operando1 +" "+ operador +" "+ operando2;
         double res = 0.0;
         switch(operador){
@@ -95,7 +97,7 @@ public class MainController{
             break;
 
             default:
-            return "Ha habido algun error";
+            return "Operadores validos: -, sum, *, /, cuadrado, sqrt";
         }
         return frase;
     }
