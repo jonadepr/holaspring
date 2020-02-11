@@ -61,7 +61,12 @@ public class MainController{
      * git init
      * git remote add origin https:--------.git
      * git remote -v*/
-    //Calculadora Prueba
+    
+     /** "mvn clean package" para limpiar*/
+
+
+    
+     //Calculadora Prueba
     
     @GetMapping("/calculadora")
     @ResponseBody
@@ -74,39 +79,34 @@ public class MainController{
             switch(operador){
                 case "-":
                 res = operando1-operando2;
-                frase = frase + " = " + res;
                 break;
 
                 case "sum":
                 res = operando1+operando2;
-                frase = frase + " = " + res;
                 break;
 
                 case "*":
                 res = operando1*operando2;
-                frase = frase + " = " + res;
                 break;
 
                 case "/":
                 res = operando1/operando2;
-                frase = frase + " = " + res;
                 break;
 
                 case "cuadrado":
                 frase = operando1 + operador;
                 res = operando1*operando1;
-                frase = frase + " = " + res;
                 break;
 
                 case "sqrt":
                 frase = operando1 + operador;
                 res = Math.sqrt(operando1);
-                frase = frase + " = " + res;
                 break;
 
                 default:
                 return "Operadores permitidos: -, sum, *, /, cuadrado, sqrt";
             }
+            frase = frase + " = " + res;
             return frase;
     }
 }
