@@ -68,7 +68,15 @@ public class MainController{
         en home/.m2 haces el paquete y lo mete en homeusu/.m2/repository y 
         en target ya compilado en el .jar
      */
-
+    /**
+     * GET leer
+     * POST Escribir
+     * PUT Escribir
+     * DELETE Eliminar
+     * 
+     * GET, PUT Y DELETE son idempotentes, por ellas solas pueden leer lo mismo y escribir lo mismo varias veces.
+     * 
+     */
 
     
      //Calculadora Prueba
