@@ -62,7 +62,12 @@ public class MainController{
      * git remote add origin https:--------.git
      * git remote -v*/
     
-     /** "mvn clean package" para limpiar*/
+     /** "mvn clean package" para limpiar
+      * "mvn package" para acompilar y generar el jar
+        "mvn install" parecido a mvn package pero lo mete ne repository
+        en home/.m2 haces el paquete y lo mete en homeusu/.m2/repository y 
+        en target ya compilado en el .jar
+     */
 
 
     
