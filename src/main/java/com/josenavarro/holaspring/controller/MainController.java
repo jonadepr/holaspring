@@ -53,6 +53,14 @@ public class MainController{
         return respuesta;
     }
 
+
+    /**Algo sobre git
+     * git add
+     * git commit -m
+     * 
+     * git init
+     * git remote add origin https:--------.git
+     * git remote -v*/
     //Calculadora Prueba
     
     @GetMapping("/calculadora")
